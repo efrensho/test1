@@ -1,5 +1,7 @@
 package com.pretest.test1.controller;
 
+import com.pretest.test1.model.AvailabilityRequest;
+import com.pretest.test1.model.AvailabilityResponse;
 import com.pretest.test1.model.ProductList;
 import com.pretest.test1.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +18,10 @@ public class ProductController {
     @PostMapping("/sortProducts")
     public ProductList sortProducts(@RequestBody ProductList list) {
         return productService.getSortedProducts(list);
+    }
+
+    @PostMapping("/getProductAvailability")
+    public AvailabilityResponse productAvailability(@RequestBody AvailabilityRequest request) {
+        return productService.getProductAvailability(request);
     }
 }
